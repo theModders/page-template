@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hub.themodders.org/sitemap.xml

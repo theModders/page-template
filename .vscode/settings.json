@@ -1,0 +1,11 @@
+{
+	"files.exclude": {
+		"_site": true,
+		".bundle": true,
+		".sass-cache": true,
+		".vscode": true,
+		"Gemfile": true,
+		"Gemfile.lock": true,
+		"vendor": true
+	}
+}

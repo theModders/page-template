@@ -1,0 +1,31 @@
+title: hub.themodders.org
+description: Wspólny link pomiędzy projektami theModders.org
+theme: null
+layouts_dir: ./server/templates
+includes_dir: ./server/templates
+paginate: 4
+paginate_path: "/:num"
+permalink: /:year/:month/:day/:title
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: "download"
+      type: "pages"
+    values:
+      layout: "redirect"
+plugins:
+  - github-pages
+  - jekyll-sitemap
+  - jekyll-feed
