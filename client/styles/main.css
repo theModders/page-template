@@ -1,0 +1,149 @@
+body {
+    background: #1d1f21;
+    color: #c5c8c6;
+    font-family: sans-serif;
+    margin: 0;
+    min-width: 360px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: stretch;
+    cursor: default;
+}
+
+:root {
+    overflow-y: auto;
+}
+
+* {
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.page-header {
+    background-image: url(/client/images/header.png);
+    width: 934px;
+    height: 182px;
+    margin: 0 auto;
+    display: block;
+}
+
+@media screen and (max-width: 1000px) {
+    .page-header {
+        background-image: url(/client/images/header-mobile.png);
+        width: 250px;
+        height: 56px;
+        margin: 30px auto;
+    }
+}
+
+@media screen and (max-width: 359px) {
+    :root {
+        overflow-x: scroll;
+    }
+}
+
+.menu {
+    width: 100%;
+    /* height: 48px; */
+    border-top: 1px solid #373b41;
+    border-bottom: 1px solid #373b41;
+}
+
+.custom-fonts [data-icon]:before {
+    font-family: "Material Icons";
+    content: attr(data-icon);
+}
+
+.menu a {
+    line-height: 48px;
+    display: inline-block;
+    color: #707880;
+    font-size: 12px;
+    margin: 0 16px;
+    margin-bottom: -6px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.menu {
+    text-align: center;
+}
+
+.menu [data-icon]:before {
+    font-size: 17px;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+.menu [data-icon]:hover:before {
+    color: #E66601;
+}
+
+.menu a:hover {
+    color: white;
+}
+
+.content {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.post {
+    border: 1px solid transparent;
+    background-color: #373b41;
+    padding: 0 3em;
+    padding-bottom: 0.7em;
+    display: block;
+    cursor: auto;
+    margin-top: 100px;
+}
+
+.post h1 {
+    color: #AAA;
+    font-size: 32px;
+    font-weight: 400;
+    margin-top: -56px;
+    margin-bottom: 35px;
+    text-align: center;
+    cursor: default;
+}
+
+.post {
+    overflow: visible;
+}
+
+.content a:hover {
+    border-bottom: 1px solid white;
+}
+.content a {
+    color: white;
+}
+
+
+.post .meta {
+    color: #707880;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.post a.meta:hover {
+    color: #c5c8c6;
+}
+
+.pagination {
+    margin: 20px;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.pagination:hover {
+    opacity: 1;
+}

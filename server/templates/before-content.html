@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>{{ page.title | default: site.title }}</title>
+<meta name="description" content="{{ site.description }}">
+<meta name="keywords" content="{{ site.keywords }}">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="/client/styles/main.css">
+<script type="module" defer src="/client/scripts/main.js"></script>
+
+<a href="/" class="page-header"></a>
+
+<nav class="menu">
+
+
+{%
+	assign sortedPages = site.pages | sort: "position" %}{%
+	for otherPage in sortedPages %}{%
+		assign depth = otherPage.path | split: '/' | size %}{%
+
+		assign indexSuffix = "/index.md" %}{%
+		assign indexSuffixLength = indexSuffix | size %}{%
+		assign fileSuffixStart = otherPage.path | size | minus: indexSuffixLength %}{%
+		assign fileSuffix = otherPage.path | slice: fileSuffixStart, indexSuffixLength %}{%
+
+		assign indexSuffix2 = "/index.html" %}{%
+		assign indexSuffixLength2 = indexSuffix2 | size %}{%
+		assign fileSuffixStart2 = otherPage.path | size | minus: indexSuffixLength2 %}{%
+		assign fileSuffix2 = otherPage.path | slice: fileSuffixStart2, indexSuffixLength2 %}{%
+
+		if depth != 1 or otherPage.title == null %}{%
+			if depth != 2 or 
+					(fileSuffix != indexSuffix and
+					fileSuffix2 != indexSuffix2) %}{%
+				continue %}{%
+			endif %}{%
+		endif %}{%
+		if otherPage.layout == "redirect" %}{%
+			assign urlLength = otherPage.content | size | minus: 8 %}{%
+			assign url = otherPage.content | slice: 3, urlLength %}
+			<a href="{{ url }}" data-icon="{{ otherPage.icon }}">{{ otherPage.title }}</a>{%
+		else %}
+			<a href="{{ otherPage.url }}" data-icon="{{ otherPage.icon }}">{{ otherPage.title }}</a>{%
+		endif %}{%
+	endfor %}
+
+	<!-- <a href="/">Hub</a>
+	<a href="https://themodders.org">Forum</a>
+	<a href="/news">News</a>
+	<a href="/tutorials">Tutorials</a>
+	<a href="/downloads">Downloads</a>
+	<a href="/projects">Projects</a>
+	<a href="/about-us">About us</a> -->
+</nav>
+
+<article class="content {{ page.layout }}">

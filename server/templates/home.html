@@ -1,0 +1,8 @@
+{% include before-content.html %}
+
+<article class="post">
+<h1>{{ page.title }}</h1>
+{{ page.content | markdownify }}
+</article>
+
+{% include after-content.html %}

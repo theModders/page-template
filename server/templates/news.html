@@ -1,0 +1,31 @@
+{% include before-content.html %}
+
+<!-- This loops through the paginated posts -->
+{% for post in paginator.posts %}
+<article class="post">
+	<h1>{{ post.title }}</h1>
+	<a class="meta" href="{{ post.url }}">
+		<span>Napisał: {{ post.author }}, {{ post.time }}</span>
+	</a>
+	{{ post.content }}
+</article>
+{% endfor %}
+
+</article>
+</main>
+<footer>
+	<!-- Pagination links -->
+	<div class="pagination">
+		{% if paginator.previous_page %}
+			<a href="{{ paginator.previous_page_path }}" class="previous">
+				&lt; Previous
+			</a>
+		{% endif %}
+		[<strong>{{ paginator.page }}</strong> / {{ paginator.total_pages }}]
+		{% if paginator.next_page %}
+			<a href="{{ paginator.next_page_path }}" class="next">
+				Next &gt;
+			</a>
+		{% endif %}
+	</div>
+</footer>
